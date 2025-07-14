@@ -76,6 +76,12 @@ export const services: ServiceFeature[] = [
     ],
     photoGallery: [
       {
+        id: 7,
+        title: "Foot Operated Sink",
+        image: "/images/services/kitchen/foot-operated-sink.png",
+        description: "Stainless steel foot-operated sink for hygienic hand washing"
+      },
+      {
         id: 1,
         title: "Professional Prep Tables",
         image: "/images/services/kitchen/prep-tables.jpg",
@@ -296,98 +302,36 @@ export const services: ServiceFeature[] = [
             name: "Serving Trays",
             description: "Elegant presentation trays",
             specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
+            name: "Food Warmers",
+            description: "Temperature-controlled serving units",
+            specs: "304 SS, adjustable temperature, digital controls"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
+            name: "Display Platters",
+            description: "Beautiful food presentation platters",
+            specs: "Mirror finish, various sizes, elegant design"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
+            name: "Buffet Equipment",
+            description: "Complete buffet and catering equipment",
+            specs: "304 SS, modular design, easy assembly"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
+            name: "Serving Utensils",
+            description: "Professional serving utensils and accessories",
+            specs: "Stainless steel construction, ergonomic design"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
+            name: "Tableware Sets",
+            description: "Complete tableware solutions",
+            specs: "Commercial grade, dishwasher safe, elegant finish"
           },
           {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
-          },
-          {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },{
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
-          },
-          {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },
-          {
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
-          },
-          {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
-          },
-          {
-            name: "Chafing Dishes",
-            description: "Professional food warmers",
-            specs: "304 SS, fuel gel compatible, elegant finish"
-          },
-          {
-            name: "Serving Trays",
-            description: "Elegant presentation trays",
-            specs: "Mirror finish, non-slip base, various sizes"
+            name: "Catering Equipment",
+            description: "Professional catering and event equipment",
+            specs: "Portable design, easy setup, durable construction"
           }
         ]
       }
