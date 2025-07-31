@@ -19,32 +19,29 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, scrollToContact, co
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-red-50/30 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-        <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-br from-red-500/20 to-transparent rounded-full blur-3xl"></div>
+      <section className="relative h-screen overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/hero/bg-image.png)' }}>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30"></div>
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <Badge variant="outline" className="mb-6 bg-white/60 backdrop-blur-sm border-red-200/50 shadow-lg">
-                <span className="text-red-600 animate-pulse text-base sm:text-lg md:text-xl">●</span>
-                <span className="ml-2 bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent font-medium text-base sm:text-lg md:text-xl">Premium Stainless Steel Manufacturing</span>
-              </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">Apex Industries</span>
+        <div className="container mx-auto px-8 relative z-10 h-full flex items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-3xl"
+          >
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6">
+                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Apex Industries</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
                 Leading manufacturer of premium stainless steel kitchen equipment, QSR solutions, and table top supplies.
                 Serving the hospitality industry with unmatched quality and innovation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/30 transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/30 transform hover:scale-105 transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl py-3 sm:py-4 md:py-6 h-12 sm:h-14 md:h-14"
                   onClick={scrollToContact}
                 >
                   Get Quote
@@ -52,27 +49,13 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, scrollToContact, co
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-gray-300 bg-white/60 backdrop-blur-sm hover:bg-gray-50/80 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  className="border-white/30 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 h-12 sm:h-14 md:h-14"
                   onClick={() => setCurrentPage("about")}
                 >
                   Learn More
                 </Button>
               </div>
             </motion.div>
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              <div className="relative bg-gradient-to-br from-white/60 to-gray-100/60 backdrop-blur-sm rounded-2xl aspect-square flex items-center justify-center shadow-2xl border border-white/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-2xl"></div>
-                <Factory className="w-32 h-32 text-gray-400 relative z-10" />
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg shadow-red-500/30"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg shadow-blue-500/30"></div>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
