@@ -50,7 +50,7 @@ const AboutPage: React.FC = () => {
               <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 text-justify">
                 Founded in 1993, Apex Industries began as a small workshop with a vision to revolutionize 
-                the stainless steel equipment industry. Our founder, Rajesh Kumar, recognized the growing 
+                the stainless steel equipment industry. Our founder, Dilip Chitroda, recognized the growing 
                 need for high-quality, durable kitchen equipment in India's expanding hospitality sector.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 text-justify">
