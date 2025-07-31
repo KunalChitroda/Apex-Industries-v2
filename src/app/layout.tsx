@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Apex Industries - Premium Stainless Steel Manufacturing',
   description: 'Leading manufacturer of premium stainless steel kitchen equipment, QSR solutions, and table top supplies. Serving the hospitality industry with unmatched quality and innovation.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+  },
 }
 
 export default function RootLayout({
