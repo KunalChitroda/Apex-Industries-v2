@@ -76,47 +76,53 @@ export const services: ServiceFeature[] = [
     ],
     photoGallery: [
       {
+        id: 1,
+        title: "Working Table",
+        image: "/images/services/kitchen/working-table.png",
+        description: "Heavy-duty stainless steel working table with 3 sections"
+      },
+      {
+        id: 2,
+        title: "Folding Table",
+        image: "/images/services/kitchen/folding-table.jpg",
+        description: "Folding table for quick setup and storage"
+      },
+      {
+        id: 3,
+        title: "Kitchen Bin",
+        image: "/images/services/kitchen/kitchen-bin.png",
+        description: "Kitchen bin for garbage collection"
+      },
+      {
+        id: 4,
+        title: "SS Stool",
+        image: "/images/services/kitchen/ss-stool-2.png",
+        description: "SS stool for easy seating"
+      },
+      {
+        id: 5,
+        title: "Namkeen Basket",
+        image: "/images/services/kitchen/ss-namkeen-basket.png",
+        description: "Namkeen basket for easy transportation of food and drinks"
+      },
+      {
+        id: 6,
+        title: "Mithai Parat",
+        image: "/images/services/kitchen/mithai-parat.png",
+        description: "Mithai parat for easy transportation of food and drinks"
+      },
+      {
         id: 7,
         title: "Foot Operated Sink",
         image: "/images/services/kitchen/foot-operated-sink.png",
         description: "Stainless steel foot-operated sink for hygienic hand washing"
       },
       {
-        id: 1,
-        title: "Professional Prep Tables",
-        image: "/images/services/kitchen/prep-tables.jpg",
-        description: "Heavy-duty stainless steel prep tables with adjustable shelving"
+        id: 8,
+        title: "SS Tray",
+        image: "/images/services/kitchen/ss-tray.jpg",
+        description: "SS tray for easy transportation of food and drinks"
       },
-      {
-        id: 2,
-        title: "Commercial Sinks",
-        image: "/images/services/kitchen/commercial-sinks.jpg",
-        description: "Food-grade stainless steel sinks for commercial kitchens"
-      },
-      {
-        id: 3,
-        title: "Storage Solutions",
-        image: "/images/services/kitchen/storage-solutions.jpg",
-        description: "Organized storage systems and work stations"
-      },
-      {
-        id: 4,
-        title: "Kitchen Equipment",
-        image: "/images/services/kitchen/kitchen-equipment.jpg",
-        description: "Complete kitchen equipment and tools"
-      },
-      {
-        id: 5,
-        title: "Cutting Boards",
-        image: "/images/services/kitchen/cutting-boards.jpg",
-        description: "Professional cutting surfaces for food preparation"
-      },
-      {
-        id: 6,
-        title: "Work Stations",
-        image: "/images/services/kitchen/work-stations.jpg",
-        description: "Complete workstation setups with integrated storage"
-      }
     ],
     cta: {
       title: "Ready to Equip Your Kitchen?",
@@ -211,39 +217,27 @@ export const services: ServiceFeature[] = [
     photoGallery: [
       {
         id: 1,
-        title: "QSR Grills & Griddles",
-        image: "/images/services/qsr/grills-griddles.jpg",
-        description: "High-speed cooking equipment for quick service"
+        title: "3 Bay Sink",
+        image: "/images/services/qsr/3-bay-sink.png",
+        description: "3 bay sink for easy cleaning"
       },
       {
         id: 2,
-        title: "Commercial Fryers",
-        image: "/images/services/qsr/commercial-fryers.jpg",
-        description: "Professional deep fryers with oil filtration"
+        title: "Hand Wash Sink",
+        image: "/images/services/qsr/hand-wash-sink.jpg",
+        description: "Hand wash sink for easy cleaning"
       },
       {
         id: 3,
-        title: "Display Cases",
-        image: "/images/services/qsr/display-cases.jpg",
-        description: "Temperature-controlled food display units"
+        title: "Standing Table",
+        image: "/images/services/qsr/standing-table.png",
+        description: "Standing table for easy seating"
       },
       {
         id: 4,
-        title: "Beverage Stations",
-        image: "/images/services/qsr/beverage-stations.jpg",
-        description: "Multi-function drink preparation systems"
-      },
-      {
-        id: 5,
-        title: "Food Warmers",
-        image: "/images/services/qsr/food-warmers.jpg",
-        description: "Temperature-controlled food holding equipment"
-      },
-      {
-        id: 6,
-        title: "Service Counters",
-        image: "/images/services/qsr/service-counters.jpg",
-        description: "Efficient service counter setups for QSR operations"
+        title: "Wall Shelf",
+        image: "/images/services/qsr/wall-shelf.png",
+        description: "Wall shelf for easy storage of food and drinks"
       }
     ],
     cta: {
@@ -339,39 +333,39 @@ export const services: ServiceFeature[] = [
     photoGallery: [
       {
         id: 1,
-        title: "Chafing Dishes",
-        image: "/images/services/tabletop/chafing-dishes.jpg",
-        description: "Professional food warmers with elegant finish"
+        title: "Lauggage Trolley",
+        image: "/images/services/tabletop/luggage-trolley.png",
+        description: "Lauggage trolley for easy transportation of food and drinks"
       },
       {
         id: 2,
-        title: "Serving Trays",
-        image: "/images/services/tabletop/serving-trays.jpg",
-        description: "Mirror-finish presentation trays"
+        title: "Liquid Product Stand",
+        image: "/images/services/tabletop/liquid-product-stand.png",
+        description: "Liquid product stand for easy display of food and drinks"
       },
       {
         id: 3,
-        title: "Food Warmers",
-        image: "/images/services/tabletop/food-warmers.jpg",
-        description: "Temperature-controlled serving units"
+        title: "SS Cupboard",
+        image: "/images/services/tabletop/ss-cupboard.png",
+        description: "SS cupboard for easy storage of food and drinks"
       },
       {
         id: 4,
-        title: "Display Platters",
-        image: "/images/services/tabletop/display-platters.jpg",
-        description: "Beautiful food presentation platters"
+        title: "SS Stool",
+        image: "/images/services/tabletop/ss-stool-1.png",
+        description: "SS stool for easy seating"
       },
       {
         id: 5,
-        title: "Buffet Equipment",
-        image: "/images/services/tabletop/buffet-equipment.jpg",
-        description: "Complete buffet and catering equipment"
+        title: "Staff Lunch Table",
+        image: "/images/services/tabletop/staff-lunch-table.png",
+        description: "Staff lunch table for easy seating"
       },
       {
         id: 6,
-        title: "Serving Utensils",
-        image: "/images/services/tabletop/serving-utensils.jpg",
-        description: "Professional serving utensils and accessories"
+        title: "Water Tank",
+        image: "/images/services/tabletop/water-tank.png",
+        description: "Water tank for easy storage of water"
       }
     ],
     cta: {

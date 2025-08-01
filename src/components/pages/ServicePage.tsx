@@ -242,7 +242,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service, scrollToContact }) =
                     <img 
                       src={photo.image} 
                       alt={photo.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300 bg-slate-50"
                     />
                   </div>
                   <CardContent className="p-4">
