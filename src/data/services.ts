@@ -2,6 +2,7 @@ import { ServiceFeature } from '@/types';
 
 export const services: ServiceFeature[] = [
   {
+    slug: 'kitchen-supplies',
     title: "Kitchen Supplies",
     description: "Professional-grade stainless steel kitchen equipment designed for commercial use",
     badges: ["Professional Grade", "Hygienic Design", "Durable Construction", "Easy Maintenance"],
@@ -142,6 +143,7 @@ export const services: ServiceFeature[] = [
     ]
   },
   {
+    slug: 'qsr-equipment',
     title: "QSR Equipment",
     description: "Quick Service Restaurant equipment built for efficiency and high-volume operations",
     badges: ["Fast Service", "Energy Efficient", "Easy Maintenance", "Commercial Grade"],
@@ -258,6 +260,7 @@ export const services: ServiceFeature[] = [
     ]
   },
   {
+    slug: 'tabletop-supplies',
     title: "Table Top Supplies",
     description: "Elegant serving solutions that enhance your restaurant's presentation",
     badges: ["SS-304 Stainless Steel", "Commercial Grade", "Anti-tarnish"],

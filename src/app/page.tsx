@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useRouter, usePathname } from "next/navigation";
 import ScrollToTop from "@/components/ScrollToTop";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
@@ -13,6 +14,7 @@ const ApexIndustriesWebsite: React.FC = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const contactRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +24,17 @@ const ApexIndustriesWebsite: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#contact") {
+      const el = document.querySelector('[data-contact-section]');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [pathname]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -46,7 +59,7 @@ const ApexIndustriesWebsite: React.FC = () => {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case "home":
-        return <HomePage setCurrentPage={setCurrentPage} scrollToContact={scrollToContact} contactRef={contactRef} />;
+        return <HomePage />;
       case "about":
         return <AboutPage />;
       case "kitchen-supplies":
@@ -71,16 +84,13 @@ const ApexIndustriesWebsite: React.FC = () => {
           />
         );
       default:
-        return <HomePage setCurrentPage={setCurrentPage} scrollToContact={scrollToContact} contactRef={contactRef} />;
+        return <HomePage />;
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {renderCurrentPage()}
-      {/* Contact section is now rendered only in HomePage */}
-      <Footer setCurrentPage={setCurrentPage} scrollToContact={scrollToContact} currentPage={currentPage} />
+      <HomePage />
       <ScrollToTop showScrollTop={showScrollTop} scrollToTop={scrollToTop} />
     </div>
   );
