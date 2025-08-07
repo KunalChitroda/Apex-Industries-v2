@@ -105,7 +105,7 @@ const Contact: React.FC<ContactProps> = ({ contactRef }) => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white/70 backdrop-blur-xl border-white/30 shadow-2xl p-8">
+            <Card className="bg-white/70 backdrop-blur-xl border-white/30 shadow-2xl p-0 sm:p-4 md:p-4 lg:p-8 xl:p-8">
               <CardHeader>
                 <CardTitle className="text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Send us a message</CardTitle>
               </CardHeader>
@@ -306,4 +306,4 @@ const Contact: React.FC<ContactProps> = ({ contactRef }) => {
   );
 };
 
-export default Contact; 
+export default Contact;
