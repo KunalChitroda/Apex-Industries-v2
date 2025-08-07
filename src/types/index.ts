@@ -21,6 +21,7 @@ export interface TeamMember {
 }
 
 export interface ServiceFeature {
+  slug: string;
   title: string;
   description: string;
   features: string[];
