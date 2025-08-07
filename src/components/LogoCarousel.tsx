@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { clientLogos } from "@/data/logos";
+import React from "react";
+
+// The logo data is now defined directly in the component
+const clientLogos = [
+  { name: "Mahalaxmi" },
+  { name: "Subway" },
+  { name: "Belgian" },
+  { name: "Prashant Corner" },
+  { name: "Joshi" },
+  { name: "Murlidhar" },
+  { name: "DMart" },
+  { name: "Domino's" },
+];
 
 // Helper to extract src from logo.img component
 const getLogoSrc = (logo: any) => {
@@ -24,142 +27,74 @@ const getLogoSrc = (logo: any) => {
   return "";
 };
 
-// Convert clientLogos to the format expected by the new carousel
+// Convert clientLogos to the format we need
 const clients = clientLogos.map(logo => ({
   name: logo.name,
   logo: getLogoSrc(logo)
 }));
 
-const chunkArray = (arr: typeof clients, size: number) =>
-  Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-    arr.slice(i * size, i * size + size)
-  );
-
 const LogoCarousel: React.FC = () => {
-  const [mobileApiReady, setMobileApiReady] = useState(false);
-  const [desktopApiReady, setDesktopApiReady] = useState(false);
-  const [isMobileHovered, setIsMobileHovered] = useState(false);
-  const [isDesktopHovered, setIsDesktopHovered] = useState(false);
-  const mobileCarouselApi = useRef<any>(null);
-  const desktopCarouselApi = useRef<any>(null);
-
-  // Set apiReady when carouselApi is set
-  const handleSetMobileApi = (api: any) => {
-    mobileCarouselApi.current = api;
-    setMobileApiReady(true);
-  };
-
-  const handleSetDesktopApi = (api: any) => {
-    desktopCarouselApi.current = api;
-    setDesktopApiReady(true);
-  };
-
-  // Auto-scroll effect for mobile (2 seconds)
-  useEffect(() => {
-    if (!mobileApiReady || !mobileCarouselApi.current || isMobileHovered) return;
-    const interval = setInterval(() => {
-      mobileCarouselApi.current.scrollNext();
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [mobileApiReady, isMobileHovered]);
-
-  // Auto-scroll effect for desktop (2 seconds)
-  useEffect(() => {
-    if (!desktopApiReady || !desktopCarouselApi.current || isDesktopHovered) return;
-    const interval = setInterval(() => {
-      desktopCarouselApi.current.scrollNext();
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [desktopApiReady, isDesktopHovered]);
-
-  // 2 at a time for mobile
-  const mobileChunks = chunkArray(clients, 2);
-  // 4 at a time for desktop
-  const desktopChunks = chunkArray(clients, 4);
+  // Duplicate the clients array for seamless infinite scroll
+  const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-10 sm:py-16 bg-gray-50">
+    <section className="py-10 sm:py-16" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-6 sm:mb-10">
           <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
-          Trusted by Industry Leaders
+            Trusted by Industry Leaders
           </h2>
         </div>
-        
-        {/* Mobile Carousel */}
-        <div className="block sm:hidden relative group">
-          <Carousel 
-            setApi={handleSetMobileApi} 
-            opts={{ loop: true }}
-            onMouseEnter={() => setIsMobileHovered(true)}
-            onMouseLeave={() => setIsMobileHovered(false)}
-            className="relative"
-          >
-            <CarouselContent>
-              {mobileChunks.map((chunk, idx) => (
-                <CarouselItem key={idx} className="flex gap-6 justify-center">
-                  {chunk.map((client) => (
-                    <div key={client.name} className="flex flex-col items-center justify-center w-1/2 group/item">
-                      <div className="relative overflow-hidden rounded-lg p-6 bg-white/50 backdrop-blur-sm border border-gray-200/50 shadow-sm hover:shadow-md transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-white/80 w-full h-36 flex flex-col items-center justify-center">
-                        <img 
-                          src={client.logo} 
-                          alt={client.name + ' logo'} 
-                          className="h-16 w-auto max-w-full object-contain transition-all duration-300 group-hover/item:scale-110 mb-2" 
-                        />
-                        <span className="text-sm text-gray-900 font-medium text-center truncate w-full">{client.name}</span>
-                      </div>
-                    </div>
-                  ))}
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/80 hover:bg-white border-gray-300 shadow-lg">
-              <ChevronLeft className="h-4 w-4" />
-            </CarouselPrevious>
-            <CarouselNext className="right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/80 hover:bg-white border-gray-300 shadow-lg">
-              <ChevronRight className="h-4 w-4" />
-            </CarouselNext>
-          </Carousel>
-        </div>
 
-        {/* Desktop Carousel */}
-        <div className="hidden sm:block relative group">
-          <Carousel 
-            setApi={handleSetDesktopApi} 
-            opts={{ loop: true }}
-            onMouseEnter={() => setIsDesktopHovered(true)}
-            onMouseLeave={() => setIsDesktopHovered(false)}
-            className="relative"
-          >
-            <CarouselContent>
-              {desktopChunks.map((chunk, idx) => (
-                <CarouselItem key={idx} className="flex gap-8 justify-center">
-                  {chunk.map((client) => (
-                    <div key={client.name} className="flex flex-col items-center justify-center w-1/4 group/item">
-                      <div className="relative overflow-hidden rounded-lg p-6 bg-white/50 backdrop-blur-sm border border-gray-200/50 shadow-sm hover:shadow-lg transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-white/80 group-hover/item:-translate-y-1 w-full h-32 flex flex-col items-center justify-center">
-                        <img 
-                          src={client.logo} 
-                          alt={client.name + ' logo'} 
-                          className="h-16 w-auto max-w-full object-contain transition-all duration-300 group-hover/item:scale-110 mb-2" 
-                        />
-                        <span className="text-sm text-gray-900 font-medium text-center">{client.name}</span>
-                      </div>
-                    </div>
-                  ))}
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 hover:bg-white border-gray-300 shadow-lg hover:shadow-xl">
-              <ChevronLeft className="h-5 w-5" />
-            </CarouselPrevious>
-            <CarouselNext className="right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 hover:bg-white border-gray-300 shadow-lg hover:shadow-xl">
-              <ChevronRight className="h-5 w-5" />
-            </CarouselNext>
-          </Carousel>
+        {/* Marquee Container */}
+        <div className="relative w-full overflow-hidden group">
+          {/* Gradient masks for smooth fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #FFFFFF, transparent)' }}></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #FFFFFF, transparent)' }}></div>
+          
+          {/* The scrolling track */}
+          <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+            {duplicatedClients.map((client, index) => (
+              <div 
+                key={`${client.name}-${index}`}
+                className="flex-shrink-0 p-4 sm:p-6"
+                style={{ width: '350px' }} // Increased width for better logo visibility
+              >
+                <div className="relative overflow-hidden rounded-lg p-8 bg-white/50 backdrop-blur-sm border border-gray-200/50 shadow-sm hover:shadow-lg transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-white/80 group-hover/item:-translate-y-1 w-full h-48 flex flex-col items-center justify-center group/item">
+                  <img 
+                    src={client.logo} 
+                    alt={client.name + ' logo'} 
+                    className="h-20 w-auto max-w-full object-contain transition-all duration-300 group-hover/item:scale-110 mb-3" 
+                  />
+                  <span className="text-base text-gray-900 font-medium text-center truncate w-full">{client.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-${350 * clients.length}px);
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+          width: ${350 * duplicatedClients.length}px;
+        }
+        
+        .group:hover .animate-marquee {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default LogoCarousel; 
+export default LogoCarousel;
