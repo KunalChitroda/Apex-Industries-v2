@@ -1,16 +1,34 @@
 "use client";
 
-import React from "react";
-import { Phone, Mail, Award } from "lucide-react";
+import React, { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-  scrollToContact: () => void;
-  currentPage: string;
-}
+const Footer: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
-const Footer: React.FC<FooterProps> = ({ setCurrentPage, scrollToContact, currentPage }) => {
+  const navigateTo = (path: string) => {
+    setIsMenuOpen(false);
+    router.push(path);
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.querySelector('[data-contact-section]');
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleContactClick = () => {
+    setIsMenuOpen(false);
+    if (pathname !== "/") {
+      router.push("/#contact");
+    } else {
+      scrollToContact();
+    }
+  };
+
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-blue-900/10"></div>
@@ -20,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage, scrollToContact, curren
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <button
-              onClick={() => setCurrentPage("home")}
+              onClick={() => navigateTo("home")}
               className="flex items-center space-x-3 mb-4 hover:opacity-80 transition-opacity duration-300"
             >
               <Image
@@ -44,38 +62,24 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage, scrollToContact, curren
               </a>
             </div>
           </div>
+
           <div className="hidden md:block"></div>
+
           <div className="hidden md:flex flex-row gap-8 justify-end ml-auto">
             <div>
               <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Quick Links</h3>
               <ul className="space-y-3">
-                <li><button onClick={() => setCurrentPage("home")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Home</button></li>
-                <li><button onClick={() => setCurrentPage("about")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">About</button></li>
-                <li>
-                  <button
-                    onClick={() => {
-                      if (currentPage === "home") {
-                        scrollToContact();
-                      } else {
-                        setCurrentPage("home");
-                        setTimeout(() => {
-                          scrollToContact();
-                        }, 300);
-                      }
-                    }}
-                    className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left"
-                  >
-                    Contact
-                  </button>
-                </li>
+                <li><button onClick={() => router.push("/")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Home</button></li>
+                <li><button onClick={() => router.push("/about")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">About</button></li>
+                <li><button onClick={handleContactClick} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Contact</button></li>
               </ul>
             </div>
             <div>
               <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Services</h3>
               <ul className="space-y-3">
-                <li><button onClick={() => setCurrentPage("kitchen-supplies")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Kitchen Supplies</button></li>
-                <li><button onClick={() => setCurrentPage("qsr-equipment")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">QSR Equipment</button></li>
-                <li><button onClick={() => setCurrentPage("tabletop-supplies")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Table Top Supplies</button></li>
+                <li><button onClick={() => router.push("/services/kitchen-supplies")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Kitchen Supplies</button></li>
+                <li><button onClick={() => router.push("/services/qsr-equipment")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">QSR Equipment</button></li>
+                <li><button onClick={() => router.push("/services/tabletop-supplies")} className="text-sm sm:text-base md:text-lg text-gray-400 hover:text-red-400 transition-all duration-300 text-left">Table Top Supplies</button></li>
               </ul>
             </div>
           </div>
@@ -90,4 +94,4 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage, scrollToContact, curren
   );
 };
 
-export default Footer; 
+export default Footer;
