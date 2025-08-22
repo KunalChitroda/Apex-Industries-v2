@@ -94,19 +94,19 @@ const HomePage: React.FC = () => {
                 title: 'Kitchen Supplies',
                 description:
                   'Professional-grade kitchen equipment including prep tables, sinks, storage solutions, and cooking equipment.',
-                section: 'kitchen-supplies',
+                section: 'services/kitchen-supplies',
               },
               {
                 title: 'QSR Equipment',
                 description:
                   'Quick Service Restaurant equipment designed for efficiency, durability, and high-volume operations.',
-                section: 'qsr-equipment',
+                section: 'services/qsr-equipment',
               },
               {
                 title: 'Table Top Supplies',
                 description:
                   'Elegant serving solutions including chafing dishes, serving trays, and presentation equipment.',
-                section: 'tabletop-supplies',
+                section: 'services/tabletop-supplies',
               },
             ].map((service, idx) => (
               <motion.div
