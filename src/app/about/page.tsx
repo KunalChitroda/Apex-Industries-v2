@@ -82,7 +82,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
-                <Factory className="w-32 h-32 text-gray-400" />
+              <img src="/images/hero/factory-front.png" alt="About Image" style={{ objectFit: 'cover', objectPosition: 'center', width: '100%', height: '100%', borderRadius: '10px' }} />
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
-                <Factory className="w-32 h-32 text-gray-400" />
+                <img src="/images/hero/machine.png" alt="About Image" style={{ objectFit: 'cover', objectPosition: 'center', width: '100%', height: '150%', borderRadius: '10px' }} />
               </div>
             </div>
           </div>
