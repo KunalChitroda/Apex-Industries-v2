@@ -67,11 +67,11 @@ const AboutPage: React.FC = () => {
                   <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-light text-primary mb-2">200+</div>
+                  <div className="text-2xl sm:text-3xl font-light text-primary mb-2">300+</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">Products Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-light text-primary mb-2">10+</div>
+                  <div className="text-2xl sm:text-3xl font-light text-primary mb-2">20+</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">Clients</div>
                 </div>
                 <div className="text-center">
